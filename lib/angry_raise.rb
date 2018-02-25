@@ -70,22 +70,22 @@ module AngryRaise
     end
 
     def to_s
-      ragify.dup
+      rageify.dup
     end
 
     alias to_str to_s
 
     def inspect
-      ragify.inspect
+      rageify.inspect
     end
 
     private
 
-    def ragify
+    def rageify
       return @str if @str.strip.empty?
 
       # Use :+ to force String creation, otherwise we'd get a AngryRaise::String
-      case @level
+      s = case @level
       when 1
         @str + "!"
       when 2
@@ -95,6 +95,10 @@ module AngryRaise
       else
         @str.upcase << "!" * @level
       end
+
+      # Should ENV be used too?
+      s.prepend("¡" * @level) if defined?(I18n) && I18n.locale =~ /\Aes(?:_|\b)/
+      s
     end
   end
 end
