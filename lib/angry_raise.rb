@@ -84,7 +84,6 @@ module AngryRaise
     def rageify
       return @str if @str.strip.empty?
 
-      # Use :+ to force String creation, otherwise we'd get a AngryRaise::String
       s = case @level
       when 1
         @str + "!"

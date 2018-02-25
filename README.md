@@ -1,8 +1,8 @@
 # AngryRaise
 
-`raise` exceptions, with emotion and intensity
-
 [![Build Status](https://travis-ci.org/sshaw/angry_raise.svg?branch=master)](https://travis-ci.org/sshaw/angry_raise)
+
+`raise` exceptions, with emotion and intensity
 
 ## Usage
 
@@ -54,6 +54,9 @@ Should one ever use monkey patched code in production‽‽‽
 This library changes the behavior or `String#!`, `Exception#!` and `Exception::!` to
 the **the exact opposite of their default implementations!** So, I'd say NO!!!!
 
+## Author
+
+Skye Shaw [skye.shaw =AT= gmail]
 
 ## See Also
 
