@@ -1,6 +1,9 @@
+# coding: utf-8
+# frozen_string_literal: true
+
 class String
   def !
-    AngryRaise::String.new(to_s)
+    AngryRaise::String.new(self)
   end
 end
 
@@ -24,12 +27,12 @@ module Kernel
       s = AngryRaise::String.new(argz[1].to_s)
       argz[0].__level.times { !s }  if argz[0].is_a?(Exception)
       argz[1] = s.to_s
-    elsif argz[0].is_a?(String)
-      argz[0] = (!argz[0]).to_s
     elsif argz[0].is_a?(Exception)
       s = AngryRaise::String.new(argz[0].message)
       argz[0].__level.times { !s } if argz[0].__level
       argz[0].message.replace(s.to_s)
+    else argz[0]
+      argz[0] = argz[0].is_a?(AngryRaise::String) ? !argz[0] : AngryRaise::String.new(argz[0])
     end
 
     raise(*argz)
@@ -55,9 +58,9 @@ module AngryRaise
     end
   end
 
-  class String < ::String
-    def initialize(*argz)
-      super(argz.shift.dup, *argz)
+  class String
+    def initialize(str)
+      @str = str.to_s
       @level = 1
     end
 
@@ -67,28 +70,30 @@ module AngryRaise
     end
 
     def to_s
-      empty? ? super : ragify
+      ragify.dup
     end
 
     alias to_str to_s
 
     def inspect
-      empty? ? super : ragify.inspect
+      ragify.inspect
     end
 
     private
 
     def ragify
+      return @str if @str.strip.empty?
+
       # Use :+ to force String creation, otherwise we'd get a AngryRaise::String
       case @level
       when 1
-        self + "!"
+        @str + "!"
       when 2
-        capitalize + "!!"
+        @str.capitalize << "!!"
       when 3
-        split(/(\s+)/).map(&:capitalize).join("") << "!!!"
+        @str.split(/(\s+)/).map(&:capitalize).join("") << "!!!"
       else
-        upcase + "!" * @level
+        @str.upcase << "!" * @level
       end
     end
   end
