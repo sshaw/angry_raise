@@ -42,7 +42,7 @@ raise!!! SomeError, "an error occured", %w[frame1 frame2 frame3]
 
 ```rb
 I18n.locale = :es
-raise!!! "tenemos una problema aqui"  # ¡¡¡Tenemos Una Problema Aqui!!!
+raise!!! "tenemos um problema aqui"  # ¡¡¡Tenemos Um Problema Aqui!!!
 ```
 
 Currently only supports Spanish. Is there any other language *to* support?
@@ -52,7 +52,7 @@ Currently only supports Spanish. Is there any other language *to* support?
 Should one ever use monkey patched code in production‽‽‽
 
 This library changes the behavior or `String#!`, `Exception#!` and `Exception::!` to
-the **the exact opposite of their default implementations!** So, I'd say NO!!!!
+**the exact opposite of their default implementations!** So, I'd say NO!!!!
 
 ## Author
 
