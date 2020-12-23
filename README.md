@@ -26,7 +26,7 @@ raise!!!! SomeError, "an error occured"     # "SomeError: AN ERROR OCCURED!!!!"
 raise!!!! SomeError.new("an error occured") # "SomeError: AN ERROR OCCURED!!!!"
 ```
 
-Feel free to [capture the mood of each caller](https://www.youtube.com/watch?v=unz1CGoFVMU):
+Feel free to [capture the mood of each caller](https://youtu.be/rHimCElPNPU):
 
 ```rb
 raise!!!!!!!!!!!!!! "an error occured"  # RuntimeError: AN ERROR OCCURED!!!!!!!!!!!!!!
