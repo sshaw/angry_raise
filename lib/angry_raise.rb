@@ -70,7 +70,7 @@ module AngryRaise
     end
 
     def to_s
-      rageify.dup
+      rageify
     end
 
     alias to_str to_s
@@ -82,7 +82,7 @@ module AngryRaise
     private
 
     def rageify
-      return @str if @str.strip.empty?
+      return @str.dup if @str.strip.empty?
 
       s = case @level
       when 1
