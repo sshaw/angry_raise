@@ -42,7 +42,7 @@ raise!!! SomeError, "an error occured", %w[frame1 frame2 frame3]
 
 ```rb
 I18n.locale = :es
-raise!!! "tenemos um problema aqui"  # ¡¡¡Tenemos Um Problema Aqui!!!
+raise!!! "tenemos un problema aqui"  # ¡¡¡Tenemos Un Problema Aqui!!!
 ```
 
 Currently only supports Spanish. Is there any other language *to* support?
